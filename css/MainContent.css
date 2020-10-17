@@ -1,0 +1,42 @@
+/*main{
+    width: 37%;
+    padding-left:20%;
+    margin-top: 150px;
+}
+h1{
+    font-family: Rubik,sans-serif;
+    font-size: 1.75rem;
+}
+h2{
+    font-family: Lora,sans-serif;
+    font-size: 1.25rem;
+}
+h3{
+    font-family: Lora,sans-serif;
+    font-size: 1rem;
+}
+li.main-icon{
+        display:inline-block;
+        width: 30px;
+}
+a{
+    color:red;
+}
+p{
+    font-family: Lora,sans-serif;
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.5;
+}
+a.news2{ 
+    text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:red; 
+    font-size: 15px;
+}
+a.news2:hover{
+    font-size: 30px;
+    color:white;
+    background-color:black;
+    border: 3px solid red;
+}
