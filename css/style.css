@@ -4,9 +4,10 @@ body{
     line-height: 1.5;
     margin:0;
     padding:0;
-    background-color: rgb(245, 245, 245);
 }
-
+* {
+    box-sizing: border-box;
+  }
 
 /* Nav + Footer Hidden */
 span.BarsHidden i{
