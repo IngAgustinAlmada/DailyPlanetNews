@@ -1,4 +1,4 @@
-header{
+header {
     background-color: rgb(82, 69, 122);
     color:white;
     padding:10px;
@@ -6,38 +6,36 @@ header{
     flex-direction: row;
     justify-content: space-between;
 }
-@media screen and (max-width:480px){
+@media screen and (max-width:480px) {
     header h1{
-  font-size: 20px;
-}
-ul.HeaderBarMenu li a{
-    display:none;
+        font-size: 20px;
+    }
+    ul.HeaderBarMenu li a {
+        display:none;
     }
 }
 
-@media screen and (min-width:480px){
-    header h1{
+@media screen and (min-width:480px) {
+    header h1 {
         font-size: 40px;
-      }
-
+    }
 }
 .HeaderBarMenu {
-display:flex;
+display: flex;
 align-items: center;
 flex-wrap: wrap; 
 }
 ul.HeaderBarMenu li {
 list-style-type: none;
-display:inline;
+display: inline;
 text-decoration: none;
 }
-ul.HeaderBarMenu li a{
+ul.HeaderBarMenu li a {
 text-decoration: none;
-color:white;
-padding:10px;
+color: white;
+padding: 10px;
 text-transform: uppercase;
 }
-
-.NavBarMenu li a:hover{
+.NavBarMenu li a:hover {
 text-decoration: underline; 
 }
