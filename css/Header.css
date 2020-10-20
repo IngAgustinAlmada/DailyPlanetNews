@@ -20,6 +20,13 @@ header {
         font-size: 40px;
     }
 }
+.BarsHidden {
+    color: white;
+    font-size: 25px;
+}
+.BarsHidden:hover{
+    color: grey;
+}
 .HeaderBarMenu {
 display: flex;
 align-items: center;
@@ -28,14 +35,13 @@ flex-wrap: wrap;
 ul.HeaderBarMenu li {
 list-style-type: none;
 display: inline;
-text-decoration: none;
+
 }
 ul.HeaderBarMenu li a {
-text-decoration: none;
 color: white;
+font-size:25px;
 padding: 10px;
-text-transform: uppercase;
 }
-.NavBarMenu li a:hover {
-text-decoration: underline; 
+ul.HeaderBarMenu li a:hover {
+    color: grey;
 }
