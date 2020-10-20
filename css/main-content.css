@@ -50,10 +50,10 @@ section.Main1 {
   padding: 20px;
 }
 
-.Main2 section.newsone {
+.Main2 article.newsone {
  position: relative;
 }
-.Main2 section.newsone h2 {
+.Main2 article.newsone h2 {
   color: white;
   background-color: black;
   position: absolute;
@@ -65,10 +65,10 @@ section.Main1 {
 .Main1 h2:hover, .newsone h2:hover, .newstwo h2:hover {
     text-decoration: underline;
 }
-.Main2 section.newstwo {
+.Main2 article.newstwo {
  position: relative;
 }
-.Main2 section.newstwo h2 {
+.Main2 article.newstwo h2 {
   color: white;
   background-color: black;
   position: absolute;
