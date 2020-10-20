@@ -29,6 +29,7 @@ ul.FooterTerms li a{
   text-decoration: none;
   color:white;
   padding:10px;
+  text-transform: uppercase;
 }
 
 .FooterCopy{
