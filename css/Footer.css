@@ -6,31 +6,31 @@ footer {
 	footer {
     font-size: 10px;
   }
-  ul.FooterTerms li a {
+  ul.footer-terms li a {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 }
-.FooterTerms {
+.footer-terms {
   flex-wrap: wrap;
   background-color: rgb(75, 73, 73);
   padding: 10px;
   margin: 0;  
   justify-content: flex-start; 
 }
-ul.FooterTerms li {
+ul.footer-terms li {
   list-style-type: none;
   display: inline;
   text-decoration: none;
 }
-ul.FooterTerms li a {
+ul.footer-terms li a {
   text-decoration: none;
   color:white;
   padding:10px;
   text-transform: uppercase;
 }
-.FooterCopy {
+.footer-copy {
   background-color: rgb(0, 0, 0);
   color: white;
   padding: 10px;
@@ -38,15 +38,15 @@ ul.FooterTerms li a {
   display: flex;
   justify-content: flex-start; 
 }
-.FooterCopy p a {
+.footer-copy p a {
   text-decoration: none;
   font-weight: bold;
   color: white;
 }
-.FooterTerms li a:hover {
+.footer-terms li a:hover {
   text-decoration: underline; 
 }
-.FooterCopy p a:hover {
+.footer-copy p a:hover {
   text-decoration: underline; 
 }
 

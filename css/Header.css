@@ -10,7 +10,7 @@ header {
     header h1{
         font-size: 20px;
     }
-    ul.HeaderBarMenu li a {
+    ul.header-bar-menu li a {
         display:none;
     }
 }
@@ -20,28 +20,28 @@ header {
         font-size: 40px;
     }
 }
-.BarsHidden {
+.bars-hidden {
     color: white;
     font-size: 25px;
 }
-.BarsHidden:hover{
+.bars-hidden:hover{
     color: grey;
 }
-.HeaderBarMenu {
-display: flex;
-align-items: center;
-flex-wrap: wrap; 
+.header-bar-menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
 }
-ul.HeaderBarMenu li {
-list-style-type: none;
-display: inline;
+ul.header-bar-menu li {
+    list-style-type: none;
+    display: inline;
 
 }
-ul.HeaderBarMenu li a {
-color: white;
-font-size:25px;
-padding: 10px;
+ul.header-bar-menu li a {
+    color: white;
+    font-size:25px;
+    padding: 10px;
 }
-ul.HeaderBarMenu li a:hover {
+ul.header-bar-menu li a:hover {
     color: grey;
 }

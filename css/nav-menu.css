@@ -6,32 +6,32 @@ nav {
   nav{
     font-size: 10px;
   }
-  ul.NavBarMenu li a {
+  ul.nav-bar-menu li a {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
 }
-}
-.NavBarMenu {
+.nav-bar-menu {
   flex-wrap: wrap;
   padding:10px;
   margin:0;  
   justify-content: flex-start; 
 }
-.NavBarMenu div:hover {
+.nav-bar-menu div:hover {
   text-decoration: underline;
 }
-ul.NavBarMenu li {
+ul.nav-bar-menu li {
   list-style-type: none;
   display:inline;
   text-decoration: none;
 }
-ul.NavBarMenu li a {
+ul.nav-bar-menu li a {
   text-decoration: none;
   color:white;
   padding:10px;
   text-transform: uppercase;
 }
-.NavBarMenu li a:hover {
+.nav-bar-menu li a:hover {
   text-decoration: underline; 
 }

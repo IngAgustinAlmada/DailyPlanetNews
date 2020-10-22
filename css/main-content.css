@@ -8,14 +8,14 @@ main {
 img {  
   width: 100%;
 }
-section.Main1 {
+section.main-one {
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding-top: 20px;
   position: relative;
 }
-.Main1 h2 {
+.main-one h2 {
   color: white;
   background-color: black;
   position: absolute;
@@ -24,7 +24,7 @@ section.Main1 {
   z-index: 1;
   font-size: 3vw;
 }
-.Main2 {  
+.main-two {  
   display: flex;
   flex-wrap: wrap;
 }
@@ -39,14 +39,14 @@ section.Main1 {
   width: 100%;
   height: auto;
 }
-.othernews {
+.other-news {
   flex: 70%;
   padding: 20px;
 }
-.Main2 article.newsone {
+.main-two article.news-one {
   position: relative;
 }
-.Main2 article.newsone h2 {
+.main-two article.news-one h2 {
   color: white;
   background-color: black;
   position: absolute;
@@ -55,13 +55,13 @@ section.Main1 {
   z-index: 1;
   font-size: 2vw;
 }
-.Main1 h2:hover, .newsone h2:hover, .newstwo h2:hover {
+.main-one h2:hover, .news-one h2:hover, .news-two h2:hover {
   text-decoration: underline;
 }
-.Main2 article.newstwo {
+.main-two article.news-two {
   position: relative;
 }
-.Main2 article.newstwo h2 {
+.main-two article.news-two h2 {
   color: white;
   background-color: black;
   position: absolute;
@@ -71,11 +71,11 @@ section.Main1 {
   font-size:2vw;
 }
 @media screen and (max-width:480px){
-  span.BarsHidden {
+  span.bars-hidden {
     display: flex;
     justify-content: center;
   }
-  .Main2 {   
+  .main-two {   
     flex-direction: column;
   }
   .ads div img {

@@ -8,17 +8,17 @@ body {
   margin:0;
   padding:0;
 }
-span.BarsHidden i {
+span.bars-hidden i {
   display:none;
 }
 @media screen and (max-width:480px) {
-  span.BarsHidden{
+  span.bars-hidden{
     display:flex;
     justify-content: center;
   }
 }
 @media screen and (min-width:480px) {
-	span.BarsHidden{
+	span.bars-hidden{
 		display:none;
   }
 }
