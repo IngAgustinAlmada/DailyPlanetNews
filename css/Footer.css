@@ -4,7 +4,7 @@ footer {
 }
 @media screen and (max-width:480px) {
 	footer {
-    font-size: 10px;
+    font-size: 5px;
   }
   ul.footer-terms li a {
     display: flex;

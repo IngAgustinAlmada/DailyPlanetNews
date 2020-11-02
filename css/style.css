@@ -7,6 +7,9 @@ body {
   line-height: 1.5;
   margin:0;
   padding:0;
+  background-image:-webkit-linear-gradient(rgba(255,255,255,.4), rgba(255, 255, 255, 0.7)), url("https://img.freepik.com/free-vector/gradient-geometric-shape-background_78532-374.jpg?size=626&ext=jpg");
+  background-repeat: repeat;
+  background-size: 100%;
 }
 span.bars-hidden i {
   display:none;

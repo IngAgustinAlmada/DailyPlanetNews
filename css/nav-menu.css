@@ -4,7 +4,7 @@ nav {
 }
 @media screen and (max-width:480px) {
   nav{
-    font-size: 10px;
+    font-size: 5px;
   }
   ul.nav-bar-menu li a {
     display: flex;

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/main-content.css">
     <link rel="stylesheet" href="./css/footer.css">
     <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" integrity="sha384-9/D4ECZvKMVEJ9Bhr3ZnUAF+Ahlagp1cyPC7h5yDlZdXs4DQ/vRftzfd+2uFUuqS" crossorigin="anonymous"></script>
+    <script src="./js/subscription.js"></script>
   </head>
   <body>
     <header>
@@ -65,35 +66,76 @@
           <a href="#">sports</a>
         </li>  
         <li>
-          <a href="./subscription.html">sing up</a>
+          <a href="#">sing up</a>
         </li>    
       </ul>
     </nav>
     <main>
-      <section class="main-one">
-        <h2>Season 2: February 2020 Developments & Latest News</h2>
-        <img src="./img/witcher.jpg">
-      </section>
-      <section class="main-two">
-        <aside class="ads">
+      <form class="main-forms">
+        <div>
           <div>
-            <img src="./img/ads.jpg">
+            <label>Full Name</label>
+            <input id ="fullName" type="text" placeholder="First & Last Name">
           </div>
+        </div>
+        <div>
           <div>
-            <img src="./img/popups.jpg">
+            <label>Email</label>
+            <input type="email" placeholder="Email">
           </div>
-        </aside>
-        <section class="other-news">
-          <article class="news-one">
-            <h2>Gyms and coronavirus: What are the facts?</h2>
-            <img src="./img/gym.jpg"> 
-          </article>
-          <article class="news-two">
-            <h2>Total cases of COVID-19 in the world</h2>
-            <img src="./img/covid.jpg">
-          </article>
-        </section>
-      </section>
+        </div>
+        <div>
+          <div>
+            <label>Password</label>
+            <input type="password" placeholder="Password">
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Confirm Password</label>
+          <input type="password" placeholder="Repeat Password">
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Age</label>
+            <input type="text" placeholder=25>
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>DNI</label>
+            <input type="text" placeholder="xx.xxx.xxx">
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Phone Number</label>
+            <input type="tel" placeholder="Phone Number">
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>City</label>
+            <input type="text" placeholder="City">
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Postal Code</label>
+            <input type="text" placeholder="Postal Code">
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>Adress</label>
+            <input type="text" placeholder="Adress">
+          </div>
+        </div>
+        <div id="button">
+          <input  type="submit" value="Suscribirse">
+        </div>
+      </form> 
     </main>
     <footer>
       <ul class="footer-terms">
