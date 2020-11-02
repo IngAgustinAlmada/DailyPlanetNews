@@ -75,12 +75,13 @@ section.main-one {
   width : 50%;
   justify-content: center;
   }
-  div > div{
+  div > fieldset{
   justify-content: center;
   align-items:center;
   width : 50%;
   font-size:2vw;
   height: 10vw;
+  border: 0;
   }
   input{
     width : 100%;
