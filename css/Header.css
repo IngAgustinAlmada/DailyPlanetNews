@@ -20,6 +20,15 @@ header {
         font-size: 40px;
     }
 }
+#homePage{
+    text-decoration: none;
+    color:white;
+    padding:10px;
+    text-transform: uppercase;
+  }
+  #homePage:hover{
+    text-decoration: underline; 
+  }
 .bars-hidden {
     color: white;
     font-size: 25px;
