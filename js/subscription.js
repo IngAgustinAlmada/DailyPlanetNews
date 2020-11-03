@@ -1,5 +1,5 @@
 window.onload = function() {
-    // FULL NAME
+    //////////////////// FULL NAME////////////////////////////////
     var fullName = document.getElementById ('fullName');
     fullName.addEventListener ('blur', fullNameBlur);
     fullName.addEventListener('focus', fullNameFocus)
@@ -30,7 +30,19 @@ window.onload = function() {
         var errorFieldFN = document.getElementById('error-fullname');
         errorFieldFN.style.display = 'none';
     }
-    // EMAIL
+    /////////////////////////BONUS/////////////////////////////
+    /* Agregar un título al formulario que diga “HOLA” y que a medida que se edita el campo nombre completo, se vaya modificando en
+tiempo real el título del formulario.(utilizar evento keydown y focus)*/
+    var bonusObj = document.getElementById ('title-form');
+    var bonusText = document.getElementById ('fullName');
+    bonusText.addEventListener ('keyup', bonusFocus);
+    function bonusFocus(){
+        if(fullNameBlur()){
+        bonusObj.textContent = "Hola " + bonusText.value + " !";
+        }
+    }
+
+    //////////////////////// EMAIL/////////////////////////////
     var eMail = document.getElementById ('email');
     eMail.addEventListener ('blur', eMailBlur);
     eMail.addEventListener ('focus', eMailFocus);
@@ -334,73 +346,62 @@ window.onload = function() {
         e.preventDefault();
         var errorString = '';
         var completedFields = '';
-        var isValid;
         //Full Name
-        isValid= fullNameBlur();
-        if (isValid) {
+        if (fullNameBlur()) {
             completedFields = 'Name: ' + fullName.value + '\n';
         }else {
             errorString = 'Name is no valid.\n'
         }
         //Email
-        isValid = eMailBlur();
-        if (isValid) {
+            if (eMailBlur()) {
             completedFields = completedFields + 'Email: ' + eMail.value + '\n';
         }else {
             errorString = errorString + 'Email is no valid.\n'
         }
         //Password
-        isValid = passWordBlur();
-        if (isValid) {
+            if (passWordBlur()) {
             completedFields = completedFields + 'PassWord: ' + passWord.value + '\n';
         }else {
             errorString = errorString + 'PassWord is no valid.\n'
         }
         //Confirm PassWord
-        isValid = confirmPassBlur();
-        if (isValid) {
+            if (confirmPassBlur()) {
             completedFields = completedFields + 'PassWord Confirmed\n';
         }else {
             errorString = errorString + 'Re PassWord is no valid.\n'
         }
         //Age
-        isValid = ageBlur();
-        if (isValid) {
+            if (ageBlur()) {
             completedFields = completedFields + 'Age: ' + age.value + '\n';
         }else {
             errorString = errorString + 'Age is no valid.\n'
         }
         //DNI
-        isValid = dniBlur();
-        if (isValid) {
+            if (dniBlur()) {
             completedFields = completedFields + 'DNI: ' + dni.value + '\n';
         }else {
             errorString = errorString + 'DNI is no valid.\n'
         }
         //PHONE
-        isValid = phoneBlur();
-        if (isValid) {
+            if (phoneBlur()) {
             completedFields = completedFields + 'Phone: ' + phone.value + '\n';
         }else {
             errorString = errorString + 'Phone is no valid.\n'
         }
         //City
-        isValid = cityBlur();
-        if (isValid) {
+            if (cityBlur()) {
             completedFields = completedFields + 'City: ' + city.value + '\n';
         }else {
             errorString = errorString + 'City is no valid.\n'
         }
         //Postal
-        isValid = postalBlur();
-        if (isValid) {
+            if (postalBlur()) {
             completedFields = completedFields + 'Postal: ' + postal.value + '\n';
         }else {
             errorString = errorString + 'Postal is no valid.\n'
         }
         //Address
-        isValid = addressBlur();
-        if (isValid) {
+            if (addressBlur()) {
             completedFields = completedFields + 'Address: ' + address.value + '\n';
         }else {
             errorString = errorString + 'Address is no valid.\n'

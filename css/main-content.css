@@ -63,6 +63,13 @@ section.main-one {
   z-index:1;
   font-size:2vw;
 }
+#title-form{
+  display: flex;
+  justify-content: center;
+  font-size: 3vw;
+  text-shadow: 4px 4px 8px rgba(82, 31, 221, 0.87);
+  text-decoration: underline;
+}
 .main-forms{
   display:flex;
   flex-wrap: wrap;
