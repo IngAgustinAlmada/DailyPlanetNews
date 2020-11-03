@@ -182,6 +182,7 @@ window.onload = function() {
             errorFieldDni.style.display = 'block';
             errorFieldDni.style.color = 'red';
             dni.style.border = "3px solid red";
+            errorFieldDni.style.fontSize = "1.5vw"
             if (!(/^([0-9])*$/.test(dni.value))){
                 errorFieldDni.textContent = "Only Numbers";
             }else if (!(Number.isInteger(dniNumber))){
