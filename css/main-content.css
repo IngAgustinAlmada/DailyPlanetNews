@@ -17,7 +17,7 @@ section.main-one {
   z-index: 1;
   font-size: 3vw;
 }
-.main-two {  
+.main-two {
   display: flex;
   flex-wrap: wrap;
 }
@@ -83,17 +83,18 @@ section.main-one {
   height: 10vw;
   border: 0;
   }
-  input{
-    width : 100%;
-    font-size:2vw;
-  }
-  #button>input{
+ 
+  #submit{
     margin:15px;
     width:15vw; 
     color:white; 
     background-color:grey;
     justify-content: center;
     align-items:center;
+    font-size:2vw;
+  }
+  .error-field {
+    display: none;
   }
 
 @media screen and (max-width:480px){

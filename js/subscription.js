@@ -1,192 +1,361 @@
-window.onload = function() { 
-// FULL NAME
-var fullName = document.getElementById ('fullName');
-fullName.addEventListener ('blur', fullNameF);
-    
-function fullNameF(){
-    var nameRegexp = new RegExp("(((?=.*[a-z])(?=.*[A-Z]))(?=.{6,}))");
-    var resultName = nameRegexp.test(fullName.value);
-    var nameSpace = new RegExp("(?=.*[ ])");
-    var resultNameSpace = nameSpace.test(fullName.value);
-    if (!resultName) {  
-        console.log("Less than 6 characters");
-}    
-    if (!resultNameSpace) { 
-            console.log("Space Missing");
-}
-}
-
-// EMAIL
-var eMail = document.getElementById ('email');
-eMail.addEventListener ('blur', eMailF);
-function eMailF(){
-    var emailRegexp = new RegExp("(((?=.*[a-z])(?=.*[A-Z]))(?=.{1,}))");
-    var resultEmail = emailRegexp.test(eMail.value);
-    var emailSpace = new RegExp("(?=.*[ ])");
-    var resultemailSpace = emailSpace.test(eMail.value);
-    var emailArroba = new RegExp("(?=.*[@])");
-    var resultEmailArroba = emailArroba.test(eMail.value);
-    var emailDotCom = new RegExp("[.com]$");
-    var resultEmailDotCom = emailDotCom.test(eMail.value);
-    if (!resultEmail) {  
-        console.log("No characters");
-}    
-    if (resultemailSpace) { 
-            console.log("No Spaceces");
-}
-    if (!resultEmailArroba) { 
-    console.log("Missing @");
-}
-    if (!resultEmailDotCom) { 
-    console.log("Missing '.com'");
-}
-}
-
-// PASSWORD
-var passWord = document.getElementById ('password');
-passWord.addEventListener ('blur', passWordF);
-function passWordF(){
-    var passwordLower = new RegExp("(?=.*[a-z])");
-    var resultPasswordLower = passwordLower.test(passWord.value);
-    var passwordUpper = new RegExp("(?=.*[A-Z])");
-    var resultPasswordUpper = passwordUpper.test(passWord.value);
-    var passNumbers = new RegExp("(?=.*[0-9])");
-    var resultPassNumbers = passNumbers.test(passWord.value);
-    var passwordLength = new RegExp("(?=.{8,})");
-    var resultpasswordLength = passwordLength.test(passWord.value);
-    var passwordSpace = new RegExp("(?=.*[ ])");
-    var resultPasswordSpace = passwordSpace.test(passWord.value);
-    var passwordSymbols = new RegExp("(?=.*[!@#$%^&*+-/])");
-    var resultPasswordSymbols = passwordSymbols.test(passWord.value);
-    
-    if (!resultPasswordLower) {  
-        console.log("Lower Cases Missing");
-}  
-    if (!resultPasswordUpper) {  
-    console.log("Upper Cases Missing");
-}   
-    if (!resultPassNumbers) { 
-            console.log("Number/s Missing");
-}
-    if (!resultpasswordLength) { 
-    console.log("Password with more than 8 characters");
-}
-    if (resultPasswordSpace) { 
-    console.log("No spaces in the password");
-}
-    if (resultPasswordSymbols) { 
-    console.log("No symbols like !@#$%^&*+-/ in the password");
-}
-}
-
-// REPEAT PASSWORD
-var confirmPass = document.getElementById ('confirmPass');
-confirmPass.addEventListener ('blur', confirmPassF);
-function confirmPassF(){
-    if (confirmPass.value !== passWord.value) {  
-        console.log("No Identical Password");
+window.onload = function() {
+    // FULL NAME
+    var fullName = document.getElementById ('fullName');
+    fullName.addEventListener ('blur', fullNameBlur);
+    fullName.addEventListener('focus', fullNameFocus)
+    function fullNameBlur(){
+        var errorFieldFN = document.getElementById('error-fullname');
+        var resultNameLength = fullName.value.length;
+        var nameSpace = new RegExp("(?=.*[ ])");
+        var resultNameSpace = nameSpace.test(fullName.value);
+        if (resultNameLength < 6) {
+            errorFieldFN.textContent = 'Less than 6 characters';
+        }
+        if (!resultNameSpace) {
+            errorFieldFN.textContent = 'Space Missing';
+        }
+        if (resultNameLength > 6 && resultNameSpace) {
+            fullName.style.border = "3px solid lawngreen";
+            errorFieldFN.style.display = 'none';
+            console.log(true);
+            return true;
+        } else {
+            errorFieldFN.style.display = 'block';
+            errorFieldFN.style.color = 'red';
+            fullName.style.border = "3px solid red";
+            errorFieldFN.style.fontSize = "1.5vw";
+            console.log(false);
+            return false;
+        }
     }
-}
-
-// AGE
-var age = document.getElementById ('age');
-age.addEventListener ('blur', ageF);
-function ageF(){
-    var ageChild = new RegExp("^[0-9]$");
-    var resultAgeChild = ageChild.test(age.value);
-    var ageTeen = new RegExp("[1][0-7]");
-    var resultAgeTeen = ageTeen.test(age.value);
-   
-    if (resultAgeChild || resultAgeTeen){
-        
-        console.log("+18 Only!")
+    function fullNameFocus(){
+        var errorFieldFN = document.getElementById('error-fullname');
+        errorFieldFN.style.display = 'none';
     }
-}
+    // EMAIL
+    var eMail = document.getElementById ('email');
+    eMail.addEventListener ('blur', eMailBlur);
+    eMail.addEventListener ('focus', eMailFocus);
+    function  eMailBlur(){
+        var errorFieldEM = document.getElementById('error-email');
+        var mailArroba = new RegExp("(?=.*[@])");
+        var resultMailArroba = mailArroba.test(eMail.value);
+        var mailDotCom = new RegExp("[.com]$");
+        var resultMailDotCom = mailDotCom.test(eMail.value);
+        if (!resultMailArroba) {
+            errorFieldEM.textContent = 'Missing @';
+        }
+        if (!resultMailDotCom) {
+            errorFieldEM.textContent = 'Missing ".com"';
+        }
+        if (resultMailArroba && resultMailDotCom) {
+            eMail.style.border = "3px solid lawngreen";
+            console.log(true);
+            return true;
+        } else {
+            errorFieldEM.style.display = 'block';
+            errorFieldEM.style.color = 'red';
+            eMail.style.border = "3px solid red";
+            errorFieldEM.style.fontSize = "1.5vw";
+            console.log(false);
+            return false;
+        }
+    }
+    function eMailFocus(){
+        var errorFieldEM = document.getElementById('error-email');
+        errorFieldEM.style.display = 'none';
+    }
+    // PASSWORD
+    var passWord = document.getElementById ('password');
+    passWord.addEventListener ('blur', passWordBlur);
+    passWord.addEventListener ('focus', passWordFocus);
+    function passWordBlur(){
+        var errorFieldPW = document.getElementById('error-password');
+        var passwordLength = passWord.value.length;
+        var passwordLower = new RegExp("(?=.*[a-z])");
+        var resultPasswordLower = passwordLower.test(passWord.value);
+        var passwordUpper = new RegExp("(?=.*[A-Z])");
+        var resultPasswordUpper = passwordUpper.test(passWord.value);
+        var passNumbers = new RegExp("(?=.*[0-9])");
+        var resultPassNumbers = passNumbers.test(passWord.value);
+        var passwordSpace = new RegExp("(?=.*[ ])");
+        var resultPasswordSpace = passwordSpace.test(passWord.value);
+        var passwordSymbols = new RegExp("(?=.*[!@#$%^&*+-/])");
+        var resultPasswordSymbols = passwordSymbols.test(passWord.value);
+        if (passwordLength < 8) {
+            errorFieldPW.textContent = 'PW secure has more than 8 characters';
+        }
+        if (!resultPasswordLower) {
+            errorFieldPW.textContent = 'Lower Cases Missing';
+        }
+        if (!resultPasswordUpper) {
+            errorFieldPW.textContent = 'Upper Cases Missing';
+        }
+        if (!resultPassNumbers) {
+            errorFieldPW.textContent = 'Number/s Missing';
+        }
+        if (resultPasswordSpace) {
+            errorFieldPW.textContent = "No spaces in the password";
+        }
+        if (resultPasswordSymbols) {
+            errorFieldPW.textContent = "No symbols like !@#$%^&*+-/ in the password";
+        }
+        if (passwordLength >= 8 && resultPasswordLower && resultPasswordUpper && resultPassNumbers &&  !resultPasswordSpace && !resultPasswordSymbols) {
+            passWord.style.border = "3px solid lawngreen";
+            console.log(true);
+            return true;
+        } else {
+            errorFieldPW.style.display = 'block';
+            errorFieldPW.style.color = 'red';
+            passWord.style.border = "3px solid red";
+            errorFieldPW.style.fontSize = "1.5vw";
+            console.log(false);
+            return false;
+        }
+    }
+    function passWordFocus(){
+        var errorFieldPW = document.getElementById('error-password');
+        errorFieldPW.style.display = 'none';
+    }
 
-//DNI 
-var dni = document.getElementById ('dni');
-dni.addEventListener ('blur', dniF);
-function dniF(){
-var dniRegexp = new RegExp("^[0-9]{7,8}$");
-var resultDni = dniRegexp.test(dni.value);
-if (!resultDni){
-        
-    console.log("DNI number only 7 / 8 digits")
-}
-}
+    // REPEAT PASSWORD
+    var confirmPass = document.getElementById ('confirmPass');
+    confirmPass.addEventListener ('blur', confirmPassBlur);
+    confirmPass.addEventListener ('focus', confirmPassFocus);
+    function confirmPassBlur(){
+        var errorFieldCPw = document.getElementById('error-confirmPass');
+        if (passWord.value !== confirmPass.value) {
+            errorFieldCPw.textContent = "No Identical Password";
+            errorFieldCPw.style.display = 'block';
+            errorFieldCPw.style.color = 'red';
+            confirmPass.style.border = "3px solid red";
+            errorFieldCPW.style.fontSize = "1.5vw";
+            console.log(false);
+            return false;
+        }else {
+            confirmPass.style.border = "3px solid lawngreen";
+            console.log(true);
+            return true;
+        }
+    }
+    function confirmPassFocus(){
+        var errorFieldCPw = document.getElementById('error-confirmPass');
+        errorFieldCPw.style.display = 'none';
+    }
+    // AGE
+    var age = document.getElementById ('age');
+    age.addEventListener ('blur', ageBlur);
+    age.addEventListener ('focus', ageFocus);
+    function ageBlur(){
+        var errorFieldAge = document.getElementById('error-age');
+        var ageNumber = Number(age.value);
+        if (/^([0-9])*$/.test(age.value) && Number.isInteger(ageNumber) && ageNumber >=18) {
+            age.style.border = "3px solid lawngreen";
+            console.log(true);
+            return true;
+        }else {
+            errorFieldAge.style.display = 'block';
+            errorFieldAge.style.color = 'red';
+            age.style.border = "3px solid red";
+            errorFieldAge.style.fontSize = "1.5vw"
+            if (!(/^([0-9])*$/.test(age.value))){
+                errorFieldAge.textContent = "Only Numbers";
+            }else if (!(Number.isInteger(ageNumber))){
+                errorFieldAge.textContent = "Only Integer Number";
+            }else if (ageNumber < 18){
+                errorFieldAge.textContent = "+18 Only!";
+            }
+            console.log(false);
+            return false;
+        }
+    }
+    function ageFocus(){
+        var errorFieldAge = document.getElementById('error-age');
+        errorFieldAge.style.display = 'none';
+    }
 
-//PHONE NUMBER 
-var phone = document.getElementById ('phone');
-phone.addEventListener ('blur', phoneF);
-function phoneF(){
-var phoneNumbers = new RegExp("^[0-9]{7,}");
-var resultPhoneNumbers = phoneNumbers.test(phone.value);
-var phoneSymbols = new RegExp("(?=.*[-_( )])");
-var resultPhoneSymbols = phoneSymbols.test(phone.value);
-if (!resultPhoneNumbers){
-        
-    console.log("Phone Number 7 or + digits")
-}
-if (resultPhoneSymbols){
-        
-    console.log("No spaces, hyphens, or parentheses are allowed")
-}
-}
+    //DNI
+    var dni = document.getElementById ('dni');
+    dni.addEventListener ('blur', dniBlur);
+    dni.addEventListener ('focus', dniFocus);
+    function dniBlur(){
+        var errorFieldDni = document.getElementById('error-dni');
+        var dniNumber = Number(dni.value);
+        if (/^([0-9])*$/.test(dni.value) && Number.isInteger(dniNumber) && dniNumber >= 1000000 && dniNumber < 100000000) {
+            dni.style.border = "3px solid lawngreen";
+            console.log(true);
+            return true;
+        }else {
+            errorFieldDni.style.display = 'block';
+            errorFieldDni.style.color = 'red';
+            dni.style.border = "3px solid red";
+            if (!(/^([0-9])*$/.test(dni.value))){
+                errorFieldDni.textContent = "Only Numbers";
+            }else if (!(Number.isInteger(dniNumber))){
+                errorFieldDni.textContent = "Only Integer Number";
+            }else if (dniNumber < 1000000){
+                errorFieldDni.textContent = "DNI 7 or + Digits";
+            }else if (dniNumber >= 100000000){
+                errorFieldDni.textContent = "DNI 8 or - Digits";
+            }
+            console.log(false);
+            return false;
+        }
+    }
+    function dniFocus(){
+        var errorFieldDni = document.getElementById('error-dni');
+        errorFieldDni.style.display = 'none';
+    }
 
-//CITY Al menos 3 caracteres. 
-var city = document.getElementById ('city');
-city.addEventListener ('blur', phoneF);
-function phoneF(){
-var cityRegexp = new RegExp("(((?=.*[A-Z])(?=.*[a-z]))(?=.{3,}))")
-var resultCity = cityRegexp.test(city.value);
-if (!resultCity){
-        
-    console.log("City name must have 3 or + digits")
-}
-}
+    //PHONE NUMBER
+    var phone = document.getElementById ('phone');
+    phone.addEventListener ('blur', phoneBlur);
+    phone.addEventListener ('focus', phoneFocus);
+    function phoneBlur(){
+        var errorFieldPhone = document.getElementById('error-phone');
+        var phoneNumber = Number(phone.value);
+        var phoneSymbols = new RegExp("(?=.*[-_( )])");
+        var resultPhoneSymbols = phoneSymbols.test(phone.value);
+        if (phoneNumber >= 1000000 && !resultPhoneSymbols) {
+            phone.style.border = "3px solid lawngreen";
+            console.log(true);
+            return true;
+        }else {
+            errorFieldPhone.style.display = 'block';
+            errorFieldPhone.style.color = 'red';
+            phone.style.border = "3px solid red";
+            errorFieldPhone.style.fontSize = "1.5vw";
+            if (resultPhoneSymbols){
+                errorFieldPhone.textContent = "No '(space) ', '-','_'  or '( )'";
+            }else if (phoneNumber < 1000000){
+                errorFieldPhone.textContent = "Phone Number 7 or + digits";
+            }
+            console.log(false);
+            return false;
+        }
+    }
+    function phoneFocus(){
+        var errorFieldPhone = document.getElementById('error-phone');
+        errorFieldPhone.style.display = 'none';
+    }
 
-//POSTAL CODE  Al menos 3 caracteres. 
-var postal = document.getElementById ('postal');
-postal.addEventListener ('blur', postalF);
-function postalF(){
-var postalRegexp = new RegExp("((^[0-9])(?=.{2,}))")
-var resultpostal = postalRegexp.test(postal.value);
-if (!resultpostal){
-        
-    console.log("Postal Code must have 3 or + digits")
-}
-}
-
-//ADDRESS  Al menos 5 caracteres, con letras, números y un espacio en el medio
-var address = document.getElementById ('address');
-address.addEventListener ('blur', addressF);
-function addressF(){
-var addressRegexp = new RegExp("(((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]))(?=.{5,}))");
-var resultAddressRegexp = addressRegexp.test(address.value);
-var addressSpace = new RegExp("(?=.*[ ])");
-var resultAddressSpace = addressSpace.test(address.value);
-var addressNumbers = new RegExp("(?=.*[0-9])");
-var resultAddressNumbers = addressNumbers.test(address.value);
-    
-    if (!resultAddressRegexp) {  
-        console.log("Address must have more than 5 digits");
-}    
-    if (!resultAddressSpace) { 
-            console.log("Missing Spaceces");
-}
-    if (!resultAddressNumbers) { 
-    console.log("Missing Numbers");
-}
-}
-/*
-// Submit
-var submit = document.getElementById ('submit');
-age.addEventListener ("click", submitF);
-function submitF(e){
-e.prev
-    console.log("clicked");
-   }
-
-*/
-
-} // window.onload = function() 
+    //CITY Al menos 3 caracteres. 
+    var city = document.getElementById ('city');
+    city.addEventListener ('blur', cityBlur);
+    city.addEventListener ('focus', cityFocus);
+    function cityBlur(){
+        var errorFieldCity = document.getElementById('error-city');
+        var cityLength = city.value.length;
+        var cityNumbers = new RegExp("(?=.*[0-9])")
+        var resultCityNumbers = cityNumbers.test(city.value);
+        if (cityLength >= 3 && !resultCityNumbers) {
+            city.style.border = "3px solid lawngreen";
+            console.log(true);
+            return true;
+        }else{
+            errorFieldCity.style.display = 'block';
+            errorFieldCity.style.color = 'red';
+            city.style.border = "3px solid red";
+            if(cityLength < 3){
+                errorFieldCity.textContent = "City name must have 3 or + digits";
+            }else if(resultCityNumbers){
+                errorFieldCity.textContent = "City name haven't any numbers";
+            }
+            errorFieldCity.style.fontSize = "1.5vw";
+            console.log(false);
+            return false;
+        }
+    }
+    function cityFocus(){
+        var errorFieldCity = document.getElementById('error-city');
+        errorFieldCity.style.display = 'none';
+    }
+    //POSTAL CODE  Al menos 3 caracteres.
+    var postal = document.getElementById ('postal');
+    postal.addEventListener ('blur', postalBlur);
+    postal.addEventListener ('focus', postalFocus);
+    function postalBlur(){
+        var errorFieldPostal = document.getElementById('error-postal');
+        var postalLength = postal.value.length;
+        var postalNumbers = new RegExp("((?=.*[0-9]))");
+        var resultPostal = postalNumbers.test(postal.value);
+        if (postalLength >= 3 && resultPostal) {
+            postal.style.border = "3px solid lawngreen";
+            console.log(true);
+            return true;
+        }else{
+            errorFieldPostal.style.display = 'block';
+            errorFieldPostal.style.color = 'red';
+            postal.style.border = "3px solid red";
+            errorFieldPostal.style.fontSize = "1.5vw";
+            if (postalLength < 3){
+            errorFieldPostal.textContent = "Postal code must have 3 or + digits";
+            }else if (!resultPostal){
+                errorFieldPostal.textContent = "Postal code contains only numbers";
+            }
+            console.log(false);
+            return false;
+        }
+    }
+    function postalFocus(){
+        var errorFieldPostal = document.getElementById('error-postal');
+        errorFieldPostal.style.display = 'none';
+    }
+///////////////////////////////////////////////////////////////////////////
+    //ADDRESS  Al menos 5 caracteres, con letras, números y un espacio en el medio
+    var address = document.getElementById ('address');
+    address.addEventListener ('blur', addressBlur);
+    address.addEventListener ('focus', addressFocus);
+    function addressBlur(){
+        var errorFieldAddress = document.getElementById('error-address');
+        var addressLength = address.value.length;
+        var addressStreet = new RegExp("(?=.*[a-z])(?=.*[A-Z])");
+        var resultAddressStreet = addressStreet.test(address.value);
+        var addressSpace = new RegExp("(?=.*[ ])");
+        var resultAddressSpace = addressSpace.test(address.value);
+        var addressNumbers = new RegExp("(?=.*[0-9])");
+        var resultAddressNumbers = addressNumbers.test(address.value);
+        if (addressLength >= 5 && resultAddressStreet && resultAddressSpace && resultAddressNumbers) {
+            address.style.border = "3px solid lawngreen";
+            console.log(true);
+            return true;
+        }else{
+            errorFieldAddress.style.display = 'block';
+            errorFieldAddress.style.color = 'red';
+            address.style.border = "3px solid red";
+            errorFieldAddress.style.fontSize = "1.5vw";
+            if (addressLength < 5){
+            errorFieldAddress.textContent = "Address must have more than 5 digits";
+            }else if (!resultAddressStreet){
+                errorFieldAddress.textContent = "Missing Street Name";
+            }else if (!resultAddressSpace){
+                errorFieldAddress.textContent = "Missing Space Between";
+            }else if (!resultAddressNumbers){
+                errorFieldAddress.textContent = "Missing Numbers";
+            }
+            console.log(false);
+            return false;
+        }
+    }
+    function addressFocus(){
+        var errorFieldAddress = document.getElementById('error-address');
+        errorFieldAddress.style.display = 'none';
+    }
+    //////////////////////////////////////////////////////////////////////////
+    // Submit
+    var button = document.getElementById('submit');
+    button.addEventListener("click", submitF);
+    function submitF(e) {
+        e.preventDefault();
+        var isValidName = fullNameF();
+        var errorString = '';
+        var completedFields = '';
+        if (isValidName) {
+            completedFields = 'Name: ' + fullName.value;
+        } else {
+            errorString = 'Name is no valid.'
+        }
+        alert(completedFields + errorString)
+        console.log("clicked");
+    }
+    } // window.onload = function()
