@@ -17,14 +17,12 @@ window.onload = function() {
         if (resultNameLength > 6 && resultNameSpace) {
             fullName.style.border = "3px solid lawngreen";
             errorFieldFN.style.display = 'none';
-            console.log(true);
             return true;
         } else {
             errorFieldFN.style.display = 'block';
             errorFieldFN.style.color = 'red';
             fullName.style.border = "3px solid red";
             errorFieldFN.style.fontSize = "1.5vw";
-            console.log(false);
             return false;
         }
     }
@@ -50,14 +48,12 @@ window.onload = function() {
         }
         if (resultMailArroba && resultMailDotCom) {
             eMail.style.border = "3px solid lawngreen";
-            console.log(true);
             return true;
         } else {
             errorFieldEM.style.display = 'block';
             errorFieldEM.style.color = 'red';
             eMail.style.border = "3px solid red";
             errorFieldEM.style.fontSize = "1.5vw";
-            console.log(false);
             return false;
         }
     }
@@ -102,14 +98,12 @@ window.onload = function() {
         }
         if (passwordLength >= 8 && resultPasswordLower && resultPasswordUpper && resultPassNumbers &&  !resultPasswordSpace && !resultPasswordSymbols) {
             passWord.style.border = "3px solid lawngreen";
-            console.log(true);
             return true;
         } else {
             errorFieldPW.style.display = 'block';
             errorFieldPW.style.color = 'red';
             passWord.style.border = "3px solid red";
             errorFieldPW.style.fontSize = "1.5vw";
-            console.log(false);
             return false;
         }
     }
@@ -126,7 +120,6 @@ window.onload = function() {
         var errorFieldCPw = document.getElementById('error-confirmPass');
         if (passWord.value == confirmPass.value && confirmPass.value !== "") {
             confirmPass.style.border = "3px solid lawngreen";
-            console.log(true);
             return true;
         }else {
             errorFieldCPw.style.display = 'block';
@@ -138,7 +131,6 @@ window.onload = function() {
             }else if(passWord.value !== confirmPass.value){
                 errorFieldCPw.textContent = "No Identical Password";
             }
-            console.log(false);
             return false;
         }
     }
@@ -155,7 +147,6 @@ window.onload = function() {
         var ageNumber = Number(age.value);
         if (/^([0-9])*$/.test(age.value) && Number.isInteger(ageNumber) && ageNumber >=18) {
             age.style.border = "3px solid lawngreen";
-            console.log(true);
             return true;
         }else {
             errorFieldAge.style.display = 'block';
@@ -169,7 +160,6 @@ window.onload = function() {
             }else if (ageNumber < 18){
                 errorFieldAge.textContent = "+18 Only!";
             }
-            console.log(false);
             return false;
         }
     }
@@ -187,7 +177,6 @@ window.onload = function() {
         var dniNumber = Number(dni.value);
         if (/^([0-9])*$/.test(dni.value) && Number.isInteger(dniNumber) && dniNumber >= 1000000 && dniNumber < 100000000) {
             dni.style.border = "3px solid lawngreen";
-            console.log(true);
             return true;
         }else {
             errorFieldDni.style.display = 'block';
@@ -202,7 +191,6 @@ window.onload = function() {
             }else if (dniNumber >= 100000000){
                 errorFieldDni.textContent = "DNI 8 or - Digits";
             }
-            console.log(false);
             return false;
         }
     }
@@ -222,7 +210,6 @@ window.onload = function() {
         var resultPhoneSymbols = phoneSymbols.test(phone.value);
         if (phoneNumber >= 1000000 && !resultPhoneSymbols) {
             phone.style.border = "3px solid lawngreen";
-            console.log(true);
             return true;
         }else {
             errorFieldPhone.style.display = 'block';
@@ -234,7 +221,6 @@ window.onload = function() {
             }else if (phoneNumber < 1000000){
                 errorFieldPhone.textContent = "Phone Number 7 or + digits";
             }
-            console.log(false);
             return false;
         }
     }
@@ -254,7 +240,6 @@ window.onload = function() {
         var resultCityNumbers = cityNumbers.test(city.value);
         if (cityLength >= 3 && !resultCityNumbers) {
             city.style.border = "3px solid lawngreen";
-            console.log(true);
             return true;
         }else{
             errorFieldCity.style.display = 'block';
@@ -266,7 +251,6 @@ window.onload = function() {
                 errorFieldCity.textContent = "City name haven't any numbers";
             }
             errorFieldCity.style.fontSize = "1.5vw";
-            console.log(false);
             return false;
         }
     }
@@ -284,8 +268,7 @@ window.onload = function() {
         var postalNumbers = new RegExp("((?=.*[0-9]))");
         var resultPostal = postalNumbers.test(postal.value);
         if (postalLength >= 3 && resultPostal) {
-            postal.style.border = "3px solid lawngreen";
-            console.log(true);
+            postal.style.border = "3px solid lawngreen";;
             return true;
         }else{
             errorFieldPostal.style.display = 'block';
@@ -297,7 +280,6 @@ window.onload = function() {
             }else if (!resultPostal){
                 errorFieldPostal.textContent = "Postal code contains only numbers";
             }
-            console.log(false);
             return false;
         }
     }
@@ -313,7 +295,7 @@ window.onload = function() {
     function addressBlur(){
         var errorFieldAddress = document.getElementById('error-address');
         var addressLength = address.value.length;
-        var addressStreet = new RegExp("(?=.*[a-z])(?=.*[A-Z])");
+        var addressStreet = new RegExp("(?=.*[a-z])|(?=.*[A-Z])");
         var resultAddressStreet = addressStreet.test(address.value);
         var addressSpace = new RegExp("(?=.*[ ])");
         var resultAddressSpace = addressSpace.test(address.value);
@@ -321,7 +303,6 @@ window.onload = function() {
         var resultAddressNumbers = addressNumbers.test(address.value);
         if (addressLength >= 5 && resultAddressStreet && resultAddressSpace && resultAddressNumbers) {
             address.style.border = "3px solid lawngreen";
-            console.log(true);
             return true;
         }else{
             errorFieldAddress.style.display = 'block';
@@ -337,7 +318,6 @@ window.onload = function() {
             }else if (!resultAddressNumbers){
                 errorFieldAddress.textContent = "Missing Numbers";
             }
-            console.log(false);
             return false;
         }
     }
@@ -353,72 +333,73 @@ window.onload = function() {
         e.preventDefault();
         var errorString = '';
         var completedFields = '';
+        var isValid;
         //Full Name
-        var isValidName = fullNameBlur();
-        if (isValidName) {
+        isValid= fullNameBlur();
+        if (isValid) {
             completedFields = 'Name: ' + fullName.value + '\n';
         }else {
             errorString = 'Name is no valid.\n'
         }
         //Email
-        var isValidEmail = eMailBlur();
-        if (isValidEmail) {
+        isValid = eMailBlur();
+        if (isValid) {
             completedFields = completedFields + 'Email: ' + eMail.value + '\n';
         }else {
             errorString = errorString + 'Email is no valid.\n'
         }
         //Password
-        var isValidPass = passWordBlur();
-        if (isValidPass) {
+        isValid = passWordBlur();
+        if (isValid) {
             completedFields = completedFields + 'PassWord: ' + passWord.value + '\n';
         }else {
             errorString = errorString + 'PassWord is no valid.\n'
         }
         //Confirm PassWord
-        var isValidConfPass = confirmPassBlur();
-        if (isValidConfPass) {
+        isValid = confirmPassBlur();
+        if (isValid) {
             completedFields = completedFields + 'PassWord Confirmed\n';
         }else {
             errorString = errorString + 'Re PassWord is no valid.\n'
         }
         //Age
-        var isValidAge = ageBlur();
-        if (isValidAge) {
+        isValid = ageBlur();
+        if (isValid) {
             completedFields = completedFields + 'Age: ' + age.value + '\n';
         }else {
             errorString = errorString + 'Age is no valid.\n'
         }
         //DNI
-        var isValidDNI = dniBlur();
-        if (isValidDNI) {
+        isValid = dniBlur();
+        if (isValid) {
             completedFields = completedFields + 'DNI: ' + dni.value + '\n';
         }else {
             errorString = errorString + 'DNI is no valid.\n'
         }
         //PHONE
-        var isValidPhone = phoneBlur();
-        if (isValidPhone) {
+        isValid = phoneBlur();
+        if (isValid) {
             completedFields = completedFields + 'Phone: ' + phone.value + '\n';
         }else {
             errorString = errorString + 'Phone is no valid.\n'
         }
         //City
-        var isValidCity = cityBlur();
-        if (isValidCity) {
+        isValid = cityBlur();
+        if (isValid) {
             completedFields = completedFields + 'City: ' + city.value + '\n';
         }else {
             errorString = errorString + 'City is no valid.\n'
         }
         //Postal
-        var isValidPostal = postalBlur();
-        if (isValidPostal) {
+        isValid = postalBlur();
+        if (isValid) {
             completedFields = completedFields + 'Postal: ' + postal.value + '\n';
         }else {
             errorString = errorString + 'Postal is no valid.\n'
         }
         //Address
-        var isValidAddress = addressBlur();
-        if (isValidAddress) {
+        isValid = addressBlur();
+        if (isValid) {
             completedFields = completedFields + 'Address: ' + address.value + '\n';
         }else {
             errorString = errorString + 'Address is no valid.\n'
