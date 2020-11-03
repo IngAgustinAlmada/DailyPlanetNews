@@ -124,18 +124,22 @@ window.onload = function() {
     confirmPass.addEventListener ('focus', confirmPassFocus);
     function confirmPassBlur(){
         var errorFieldCPw = document.getElementById('error-confirmPass');
-        if (passWord.value !== confirmPass.value) {
-            errorFieldCPw.textContent = "No Identical Password";
-            errorFieldCPw.style.display = 'block';
-            errorFieldCPw.style.color = 'red';
-            confirmPass.style.border = "3px solid red";
-            errorFieldCPW.style.fontSize = "1.5vw";
-            console.log(false);
-            return false;
-        }else {
+        if (passWord.value == confirmPass.value && confirmPass.value !== "") {
             confirmPass.style.border = "3px solid lawngreen";
             console.log(true);
             return true;
+        }else {
+            errorFieldCPw.style.display = 'block';
+            errorFieldCPw.style.color = 'red';
+            confirmPass.style.border = "3px solid red";
+            errorFieldCPw.style.fontSize = "1.5vw";
+            if(confirmPass.value == ""){
+                errorFieldCPw.textContent = "No Blank";
+            }else if(passWord.value !== confirmPass.value){
+                errorFieldCPw.textContent = "No Identical Password";
+            }
+            console.log(false);
+            return false;
         }
     }
     function confirmPassFocus(){
@@ -301,8 +305,8 @@ window.onload = function() {
         var errorFieldPostal = document.getElementById('error-postal');
         errorFieldPostal.style.display = 'none';
     }
-///////////////////////////////////////////////////////////////////////////
-    //ADDRESS  Al menos 5 caracteres, con letras, números y un espacio en el medio
+
+    //ADDRESS
     var address = document.getElementById ('address');
     address.addEventListener ('blur', addressBlur);
     address.addEventListener ('focus', addressFocus);
@@ -341,21 +345,84 @@ window.onload = function() {
         var errorFieldAddress = document.getElementById('error-address');
         errorFieldAddress.style.display = 'none';
     }
-    //////////////////////////////////////////////////////////////////////////
+
     // Submit
     var button = document.getElementById('submit');
     button.addEventListener("click", submitF);
     function submitF(e) {
         e.preventDefault();
-        var isValidName = fullNameF();
         var errorString = '';
         var completedFields = '';
+        //Full Name
+        var isValidName = fullNameBlur();
         if (isValidName) {
-            completedFields = 'Name: ' + fullName.value;
-        } else {
-            errorString = 'Name is no valid.'
+            completedFields = 'Name: ' + fullName.value + '\n';
+        }else {
+            errorString = 'Name is no valid.\n'
+        }
+        //Email
+        var isValidEmail = eMailBlur();
+        if (isValidEmail) {
+            completedFields = completedFields + 'Email: ' + eMail.value + '\n';
+        }else {
+            errorString = errorString + 'Email is no valid.\n'
+        }
+        //Password
+        var isValidPass = passWordBlur();
+        if (isValidPass) {
+            completedFields = completedFields + 'PassWord: ' + passWord.value + '\n';
+        }else {
+            errorString = errorString + 'PassWord is no valid.\n'
+        }
+        //Confirm PassWord
+        var isValidConfPass = confirmPassBlur();
+        if (isValidConfPass) {
+            completedFields = completedFields + 'PassWord Confirmed\n';
+        }else {
+            errorString = errorString + 'Re PassWord is no valid.\n'
+        }
+        //Age
+        var isValidAge = ageBlur();
+        if (isValidAge) {
+            completedFields = completedFields + 'Age: ' + age.value + '\n';
+        }else {
+            errorString = errorString + 'Age is no valid.\n'
+        }
+        //DNI
+        var isValidDNI = dniBlur();
+        if (isValidDNI) {
+            completedFields = completedFields + 'DNI: ' + dni.value + '\n';
+        }else {
+            errorString = errorString + 'DNI is no valid.\n'
+        }
+        //PHONE
+        var isValidPhone = phoneBlur();
+        if (isValidPhone) {
+            completedFields = completedFields + 'Phone: ' + phone.value + '\n';
+        }else {
+            errorString = errorString + 'Phone is no valid.\n'
+        }
+        //City
+        var isValidCity = cityBlur();
+        if (isValidCity) {
+            completedFields = completedFields + 'City: ' + city.value + '\n';
+        }else {
+            errorString = errorString + 'City is no valid.\n'
+        }
+        //Postal
+        var isValidPostal = postalBlur();
+        if (isValidPostal) {
+            completedFields = completedFields + 'Postal: ' + postal.value + '\n';
+        }else {
+            errorString = errorString + 'Postal is no valid.\n'
+        }
+        //Address
+        var isValidAddress = addressBlur();
+        if (isValidAddress) {
+            completedFields = completedFields + 'Address: ' + address.value + '\n';
+        }else {
+            errorString = errorString + 'Address is no valid.\n'
         }
         alert(completedFields + errorString)
-        console.log("clicked");
     }
-    } // window.onload = function()
+} // window.onload = function()
