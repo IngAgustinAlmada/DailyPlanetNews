@@ -34,12 +34,19 @@ window.onload = function() {
     /* Agregar un título al formulario que diga “HOLA” y que a medida que se edita el campo nombre completo, se vaya modificando en
 tiempo real el título del formulario.(utilizar evento keydown y focus)*/
     var bonusObj = document.getElementById ('title-form');
-    var bonusText = document.getElementById ('fullName');
-    bonusText.addEventListener ('keyup', bonusFocus);
-    function bonusFocus(){
-        if(fullNameBlur()){
-        bonusObj.textContent = "Hola " + bonusText.value + " !";
-        }
+    var bonusText = document.getElementById ('fullName'); // Input
+    bonusText.addEventListener('focus', bonusFocus);
+    bonusText.addEventListener('keyup', bonusKeyUp);
+    function bonusFocus() {
+        bonusObj.style.visibility = 'visible';
+    }
+    function bonusKeyUp(){
+        bonusObj.textContent = "Hola " + bonusText.value + "!";
+        // if(fullNameBlur()){
+        //     bonusObj.textContent = "Hola " + bonusText.value + "!";
+        // } else {
+        //     bonusObj.textContent = "Hola!";
+        // }
     }
 
     //////////////////////// EMAIL/////////////////////////////

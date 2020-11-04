@@ -69,6 +69,7 @@ section.main-one {
   font-size: 3vw;
   text-shadow: 4px 4px 8px rgba(82, 31, 221, 0.87);
   text-decoration: underline;
+  visibility: hidden;
 }
 .main-forms{
   display:flex;
